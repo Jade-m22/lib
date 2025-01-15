@@ -29,3 +29,32 @@ def stairway
   
   stairway
   
+  def average_finish_time(simulations = 100)
+    total_turns = 0
+    
+    simulations.times do
+      position = 0
+      turns = 0
+  
+      while position < 10
+        turns += 1
+        de = rand(1..6)
+  
+        if de == 5 || de == 6
+          position += 1
+        elsif de == 1
+          position -= 1 if position > 0
+        end
+      end
+  
+      total_turns += turns
+    end
+  
+    average = total_turns.to_f / simulations
+    puts "Après #{simulations} parties, le nombre moyen de tours pour atteindre la 10ème marche est de #{average.round(2)}."
+    average
+  end
+  
+  # Appel de la méthode
+  average_finish_time(100)
+  
