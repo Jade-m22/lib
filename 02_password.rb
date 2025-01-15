@@ -27,4 +27,4 @@ def perform
   welcome_screen
 end
 
-perform
+perform 
